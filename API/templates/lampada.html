@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<style>
+
+
+
+	body {
+        margin: 0px
+    }
+    .container {
+        width: 100vw;
+        height: 100vh;
+        background: #6C7A89;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center
+    }
+    .box {
+        width: 300px;
+        height: 300px;
+        background: #fff;
+    }
+
+	table{
+		font-family: arial, sans-serif;
+		border-collapse: collapse;
+		width: 30%;
+	}
+	td, th {
+		border: 1px solid #dddddd;
+		text-align: left;
+		padding: 8px;
+	}
+
+	tr:nth-clild(even){
+		background-color: #dddddd;
+	}
+	</style>
+
+		<title>Projeto de Redes</title>
+	</head>
+	
+	
+	<body style="width: 50%; margin:0 auto  ;">
+		
+		<div style= "width: 80% ; margin: 0 auto;" text-align = 'center'>
+			<center> <h1 style="align-self: center;"> Projeto de Redes 2017.2</center></h1>
+			
+			
+			<h4 style="align-self: center;" > Selecione o ID do dispositivo a alterar </h4>
+
+			<form method="POST" autocomplete="off">
+				<select name= 'id' style= "width: 100%; text-align: center;" align='center'>
+					{% for item in items %}
+				  		<option value={{item[0]}}>{{item[0]}}</option>
+					{% endfor %}
+				</select>
+				<input style= "width: 98%; align-self: center; " type="text" name="comando" value = "">
+				<input style= "width: 100%; align-self: center;" type="submit" value="EnviarComando" name="comando_lampada">
+			</form>
+	
+			<h3 align='center'>Lampadas </h3>
+			<table style= "text-align: center; width: 100%; align-self: center" align='center' >
+				<th style= "text-align: center; "> ID </th>
+				<th style= "text-align: center; "> Status </th>
+				{%for item in items %}
+					<tr align='center'>
+						<td style="text-align:center;vertical-align:middle;height:20px"> {{item[0]}} </td>
+						<td style="text-align:center;vertical-align:middle;height:20px"> {{item[1]}} </td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+		
+
+			
+			
+	
+		
+		<!-- <h3>Ar condicionados</h3>
+		<h3>Termometros</h3>
+		<h3>Lâmpadas</h3>
+		<h3>Fechaduras</h3> -->
+			
+
+	</body>
+</html> 

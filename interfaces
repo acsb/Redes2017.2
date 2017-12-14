@@ -1,0 +1,55 @@
+# interfaces(5) file used by ifup(8) and ifdown(8)
+auto lo
+iface lo inet loopback
+
+auto enp0s3
+iface enp0s3 inet static
+dns-nameservers 172.21.0.8 172.21.0.9
+address 172.20.4.240
+netmask 255.255.252.0
+gateway 172.20.7.254
+
+auto ovs-switch
+allow-ovs ovs-switch
+	iface ovs-switch inet static
+	address 10.10.0.1
+	netmask 255.255.255.0
+	#setando mac adress e controlador do switch
+	ovs_extra set bridge ovs-switch other-config:hwaddr=00:00:00:00:00:aa -- set-controller ovs-switch tcp:127.0.0.1:6633
+	ovs_type OVSBridge
+	ovs_ports port1 port2 port3 port4 port5
+
+allow-ovs-switch port1
+	iface port1 inet manual
+	ovs_bridge ovs-switch
+	ovs_type OVSTunnel
+	ovs_tunnel_type gre
+	ovs_tunnel_options options:remote_ip=172.20.4.241
+
+allow-ovs-switch port2
+        iface port2 inet manual
+        ovs_bridge ovs-switch
+        ovs_type OVSTunnel
+        ovs_tunnel_type gre
+        ovs_tunnel_options options:remote_ip=172.20.4.242
+
+allow-ovs-switch port3
+        iface port3 inet manual
+        ovs_bridge ovs-switch
+        ovs_type OVSTunnel
+        ovs_tunnel_type gre
+        ovs_tunnel_options options:remote_ip=172.20.4.243
+
+allow-ovs-switch port4
+        iface port4 inet manual
+        ovs_bridge ovs-switch
+        ovs_type OVSTunnel
+        ovs_tunnel_type gre
+        ovs_tunnel_options options:remote_ip=172.20.4.244
+
+allow-ovs-switch port5
+        iface port5 inet manual
+        ovs_bridge ovs-switch
+        ovs_type OVSTunnel
+        ovs_tunnel_type gre
+        ovs_tunnel_options options:remote_ip=172.20.4.245

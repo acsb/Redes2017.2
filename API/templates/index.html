@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<style>
+	table{
+		font-family: arial, sans-serif;
+		border-collapse: collapse;
+		width: 30%;
+	}
+	td, th {
+		border: 1px solid #dddddd;
+		text-align: left;
+		padding: 8px;
+	}
+
+	tr:nth-clild(even){
+		background-color: #dddddd;
+	}
+	</style>
+
+		<title>Projeto de Redes</title>
+	</head>
+	
+	<body>
+		<h1><center>Projeto de Redes 2017.2</center></h1>
+		
+		<form  action = "{{url_for('ar_crud')}}"" method="GET">
+			<input type="submit" value="Ar condicionados" name="ar_crud">
+		</form>
+		<form action = "{{url_for('termometro_crud')}}"" method="GET">
+			<input type="submit" value="Termometros" name="termometro_crud">
+		</form>
+		<form action = "{{url_for('lampada_crud')}}"" method="GET">
+			<input type="submit" value="Lâmpadas" name="lampada_crud">
+		</form>
+		<form action = "{{url_for('fechadura_crud')}}"" method="GET">
+			<input type="submit" value="Fechaduras" name="fechadura_crud">
+		</form>
+
+			
+			
+	
+		
+		<!-- <h3>Ar condicionados</h3>
+		<h3>Termometros</h3>
+		<h3>Lâmpadas</h3>
+		<h3>Fechaduras</h3> -->
+			
+
+	</body>
+</html> 
